@@ -1,2 +1,11 @@
-package com.example.userservice.configuration;public class RSAConfig {
+package com.example.userservice.configuration;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+
+
+@ConfigurationProperties("rsa")
+public record RSAConfig(RSAPublicKey publicKey, RSAPrivateKey privateKey) {
 }

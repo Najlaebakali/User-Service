@@ -1,0 +1,128 @@
+# Common Types
+type User {
+    id: ID!
+    nom: String!
+    prenom: String!
+    email: String!
+    role: String!
+}
+
+type Admin {
+    id: ID!
+    nom: String!
+    prenom: String!
+    email: String!
+    label: String!
+    role: String!
+    #password: String!  Added password
+}
+
+type Medecin {
+    id: ID!
+    nom: String!
+    prenom: String!
+    email: String!
+    role: String!
+    label: String!
+    admin: Admin!
+}
+
+type Secretaire {
+    id: ID!
+    nom: String!
+    prenom: String!
+    label: String!
+    email: String!
+    role: String!
+    medecin: Medecin!
+}
+
+# Input Types
+input UserInput {
+    nom: String!
+    prenom: String!
+    email: String!
+    password: String!
+    role: String!
+}
+
+input AdminInput {
+    nom: String!
+    prenom: String!
+    email: String!
+    password: String!
+    role: String!
+    label: String!
+}
+
+
+
+input MedecinInput {
+    nom: String!
+    prenom: String!
+    email: String!
+    password: String!
+    role: String!
+    label: String!
+    #adminId: ID!
+    #admin: AdminInput!
+
+}
+
+input SecretaireInput {
+    nom: String!
+    prenom: String!
+    email: String!
+    password: String!
+    role: String!
+    label: String!
+}
+
+# Query Definitions
+type Query {
+    # User Queries
+    findAllUsers: [User]!
+    findUserById(id: ID!): User
+    findUserByEmail(email: String!): User
+
+    # Admin Queries
+    findAllAdmins: [Admin]!
+    findAdminById(id: ID!): Admin
+
+    # Medecin Queries
+    findAllMedecins: [Medecin]!
+    findMedecinById(id: ID!): Medecin
+    findByLabel(label: String!): [Medecin]!
+    findByPrenom(prenom: String!): [Medecin]!
+    findByAdmin(id: ID!): [Medecin]!
+
+    # Secretaire Queries
+    findAllSecretaires: [Secretaire]!
+    findSecretaireById(id: ID!): Secretaire
+    findByLabelSec(label: String!): [Secretaire]!
+    findByPrenomSec(prenom: String!): [Secretaire]!
+    findByMedecin(id: ID!): [Secretaire]!
+}
+
+# Mutation Definitions
+type Mutation {
+    # User Mutations
+    saveUser(user: UserInput!): User
+    updateUser(id: ID!, user: UserInput!): User
+    deleteUser(id: ID!): Boolean
+
+    # Admin Mutations
+    saveAdmin(admin: AdminInput!): Admin
+    updateAdmin(id: ID!, admin: AdminInput!): Admin
+    deleteAdmin(id: ID!): Boolean
+
+    # Medecin Mutations
+    saveMedecin(medecin: MedecinInput!, adminId: ID!): Medecin
+    updateMedecin(id: ID!, medecin: MedecinInput!): Medecin
+    deleteMedecin(id: ID!): Boolean
+
+    # Secretaire Mutations
+    saveSecretaire(secretaire: SecretaireInput!, medecinId: ID!): Secretaire
+    updateSecretaire(id: ID!, secretaire: SecretaireInput!): Secretaire
+    deleteSecretaire(id: ID!): Boolean
+}

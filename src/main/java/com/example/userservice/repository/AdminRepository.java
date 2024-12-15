@@ -1,2 +1,7 @@
-package com.example.userservice.repository;public interface AdminRepository {
+package com.example.userservice.repository;
+
+import com.example.userservice.entities.Admin;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AdminRepository extends JpaRepository<Admin, Long> {
 }
