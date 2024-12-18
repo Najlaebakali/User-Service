@@ -25,8 +25,11 @@ public class UserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Useer user = repository.findByEmail(email);
-        if(user == null) throw new UsernameNotFoundException("User not found with username: " + email);
-
+        if (user == null) {
+            System.out.println("User not found: " + email);
+            throw new UsernameNotFoundException("User not found with username: " + email);
+        }
+        System.out.println("User found: " + user.getEmail() + " with role " + user.getRole());
         Collection<GrantedAuthority> authorities = new ArrayList<>();
 
         authorities.add(new SimpleGrantedAuthority(user.getRole()));

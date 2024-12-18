@@ -8,6 +8,7 @@ import com.example.userservice.mapper.SecretaireMapper;
 import com.example.userservice.repository.MedecinRepository;
 import com.example.userservice.repository.SecretaireRepository;
 import com.example.userservice.service.SecretaireService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,11 +20,13 @@ public class SecretaireServiceImpl implements SecretaireService {
     private final SecretaireRepository secretaireRepository;
     private final SecretaireMapper secretaireMapper;
     private final MedecinRepository medecinRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public SecretaireServiceImpl(MedecinRepository medecinRepository, SecretaireRepository secretaireRepository, SecretaireMapper secretaireMapper) {
+    public SecretaireServiceImpl(MedecinRepository medecinRepository,PasswordEncoder passwordEncoder, SecretaireRepository secretaireRepository, SecretaireMapper secretaireMapper) {
         this.medecinRepository = medecinRepository;
         this.secretaireRepository = secretaireRepository;
         this.secretaireMapper = secretaireMapper;
+        this.passwordEncoder=passwordEncoder;
     }
 
     @Override

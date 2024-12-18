@@ -39,6 +39,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         try {
             Useer customer = new ObjectMapper().readValue(request.getInputStream(), Useer.class);
+            System.out.println("Attempting authentication for user: " + customer.getEmail());
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             customer.getEmail(),

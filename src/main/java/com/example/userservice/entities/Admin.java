@@ -34,10 +34,6 @@ public class Admin extends Useer {
         this.medecins = medecins;
     }
 
-
-
-
-
     public Admin() {
     }
 }

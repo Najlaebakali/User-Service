@@ -1,6 +1,8 @@
 package com.example.userservice.mapper;
 
+import com.example.userservice.dto.AdminDTO;
 import com.example.userservice.dto.UserDTO;
+import com.example.userservice.entities.Admin;
 import com.example.userservice.entities.Useer;
 import org.springframework.stereotype.Component;
 
@@ -44,4 +46,5 @@ public class UserMapper {
         entity.setPassword(dto.getPassword());
         entity.setRole(dto.getRole());
     }
+
 }

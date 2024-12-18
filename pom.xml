@@ -83,6 +83,23 @@
             <artifactId>spring-graphql-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Ajout de dep pour api karate test-->
+
+            <!-- other dependencies
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-junit5</artifactId>
+            <version>1.1.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-core</artifactId>
+            <version>1.1.0</version>
+        </dependency>-->
+
+
     </dependencies>
 
     <build>

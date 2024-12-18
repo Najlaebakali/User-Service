@@ -7,6 +7,7 @@ import com.example.userservice.mapper.MedecinMapper;
 import com.example.userservice.repository.AdminRepository;
 import com.example.userservice.repository.MedecinRepository;
 import com.example.userservice.service.MedecinService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,11 +20,13 @@ public class MedecinServiceImpl implements MedecinService {
     private final MedecinRepository medecinRepository;
     private final MedecinMapper medecinMapper;
     private final AdminRepository adminRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public MedecinServiceImpl(MedecinRepository medecinRepository, MedecinMapper medecinMapper, AdminRepository adminRepository) {
+    public MedecinServiceImpl(MedecinRepository medecinRepository, PasswordEncoder passwordEncoder,MedecinMapper medecinMapper, AdminRepository adminRepository) {
         this.medecinRepository = medecinRepository;
         this.medecinMapper = medecinMapper;
         this.adminRepository = adminRepository;
+        this.passwordEncoder=passwordEncoder;
     }
 
     @Override
@@ -43,6 +46,7 @@ public class MedecinServiceImpl implements MedecinService {
     @Override
     public MedecinDTO saveMedecin(MedecinDTO medecinDTO, Long adminId) {
 
+        medecinDTO.setPassword(passwordEncoder.encode(medecinDTO.getPassword()));
         Medecin medecin = medecinMapper.toEntity(medecinDTO, adminId);
         Medecin savedMedecin = medecinRepository.save(medecin);
         return medecinMapper.toDto(savedMedecin);

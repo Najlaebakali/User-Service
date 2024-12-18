@@ -5,7 +5,6 @@ import com.example.userservice.entities.Admin;
 import com.example.userservice.mapper.AdminMapper;
 import com.example.userservice.repository.AdminRepository;
 import com.example.userservice.service.AdminService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +43,8 @@ public class AdminServiceImpl implements AdminService {
         if (adminDTO == null) {
             throw new IllegalArgumentException("UserDTO cannot be null");
         }
+
+        adminDTO.setPassword(passwordEncoder.encode(adminDTO.getPassword()));
         Admin admin = adminMapper.toEntity(adminDTO);
         Admin savedAdmin = adminRepository.save(admin);
         return adminMapper.toDto(savedAdmin);
