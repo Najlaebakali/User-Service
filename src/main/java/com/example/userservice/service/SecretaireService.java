@@ -13,6 +13,8 @@ public interface SecretaireService {
     //MedecinDTO saveMedecin(MedecinDTO medecinDTO);
 
     SecretaireDTO saveSecretaire(SecretaireDTO secretaireDTO, Long medecinId);
+    SecretaireDTO updateSecretaire(Long id, SecretaireDTO secretaireDTO);
+
 
     //MedecinDTO updateMedecin(Long id, MedecinDTO medecinDTO);
     Boolean deleteSecretaire(Long id);

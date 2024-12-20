@@ -1,6 +1,7 @@
 package com.example.userservice.service.impl;
 
 
+import com.example.userservice.dto.MedecinDTO;
 import com.example.userservice.dto.SecretaireDTO;
 import com.example.userservice.entities.Medecin;
 import com.example.userservice.entities.Secretaire;
@@ -49,6 +50,20 @@ public class SecretaireServiceImpl implements SecretaireService {
         Secretaire secretaire = secretaireMapper.toEntity(secretaireDTO, medecinId);
         Secretaire savedSecretaire = secretaireRepository.save(secretaire);
         return secretaireMapper.toDto(savedSecretaire);
+    }
+
+    @Override
+    public SecretaireDTO updateSecretaire(Long id, SecretaireDTO secretaireDTO) {
+        Secretaire existingSecretaire = secretaireRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Secretaire not found"));
+        existingSecretaire.setNom(secretaireDTO.getNom());
+        existingSecretaire.setPrenom(secretaireDTO.getPrenom());
+        existingSecretaire.setEmail(secretaireDTO.getEmail());
+        existingSecretaire.setPassword(passwordEncoder.encode(secretaireDTO.getPassword()));
+        existingSecretaire.setRole(secretaireDTO.getRole());
+        existingSecretaire.setLabel(secretaireDTO.getLabel());
+        Secretaire updatedSecretaire= secretaireRepository.save(existingSecretaire);
+        return secretaireMapper.toDto(updatedSecretaire);
     }
 
     /*@Override

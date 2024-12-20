@@ -36,6 +36,11 @@ public class MedecinController {
         return medecinService.saveMedecin(medecin,adminId);
     }
 
+    @MutationMapping
+    public MedecinDTO updateMedecin(@Argument Long id, @Argument MedecinDTO medecin) {
+        return medecinService.updateMedecin(id, medecin);
+    }
+
     /*@MutationMapping
     public MedecinDTO updateMedecin(@Argument Long id, @Argument MedecinDTO medecin) {
         return medecinService.updateMedecin(id, medecin);

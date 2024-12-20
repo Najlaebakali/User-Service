@@ -1,5 +1,6 @@
 package com.example.userservice.controller;
 
+import com.example.userservice.dto.MedecinDTO;
 import com.example.userservice.dto.SecretaireDTO;
 import com.example.userservice.service.SecretaireService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +37,12 @@ public class SecretaireController {
         return secretaireService.saveSecretaire(secretaire,medecinId);
     }
 
-    /*@MutationMapping
-    public MedecinDTO updateMedecin(@Argument Long id, @Argument MedecinDTO medecin) {
-        return medecinService.updateMedecin(id, medecin);
-    }*/
+    @MutationMapping
+    public SecretaireDTO updateSecretaire(@Argument Long id, @Argument SecretaireDTO secretaire) {
+        return secretaireService.updateSecretaire(id, secretaire);
+    }
+
+
 
     @MutationMapping
     public Boolean deleteSecretaire(@Argument Long id) {

@@ -51,6 +51,19 @@ public class MedecinServiceImpl implements MedecinService {
         Medecin savedMedecin = medecinRepository.save(medecin);
         return medecinMapper.toDto(savedMedecin);
     }
+
+    @Override public MedecinDTO updateMedecin(Long id, MedecinDTO medecinDTO) {
+        Medecin existingMedecin = medecinRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Medecin not found"));
+        existingMedecin.setNom(medecinDTO.getNom());
+        existingMedecin.setPrenom(medecinDTO.getPrenom());
+        existingMedecin.setEmail(medecinDTO.getEmail());
+        existingMedecin.setPassword(passwordEncoder.encode(medecinDTO.getPassword()));
+        existingMedecin.setRole(medecinDTO.getRole());
+        existingMedecin.setLabel(medecinDTO.getLabel());
+        Medecin updatedMedecin = medecinRepository.save(existingMedecin);
+        return medecinMapper.toDto(updatedMedecin);
+    }
     @Override
     public boolean medecinExists(Long id) {
         return medecinRepository.existsById(id);

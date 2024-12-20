@@ -13,7 +13,7 @@ public interface MedecinService {
 
     MedecinDTO saveMedecin(MedecinDTO medecinDTO, Long adminId);
 
-    //MedecinDTO updateMedecin(Long id, MedecinDTO medecinDTO);
+    MedecinDTO updateMedecin(Long id, MedecinDTO medecinDTO);
     Boolean deleteMedecin(Long id);
     List<MedecinDTO> findByLabelContainingIgnoreCase(String label);
     List<MedecinDTO> findByPrenomContainingIgnoreCase(String prenom);
