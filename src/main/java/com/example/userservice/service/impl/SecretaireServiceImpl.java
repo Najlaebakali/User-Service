@@ -1,7 +1,6 @@
 package com.example.userservice.service.impl;
 
 
-import com.example.userservice.dto.MedecinDTO;
 import com.example.userservice.dto.SecretaireDTO;
 import com.example.userservice.entities.Medecin;
 import com.example.userservice.entities.Secretaire;

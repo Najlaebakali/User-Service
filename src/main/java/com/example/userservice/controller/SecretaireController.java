@@ -1,6 +1,5 @@
 package com.example.userservice.controller;
 
-import com.example.userservice.dto.MedecinDTO;
 import com.example.userservice.dto.SecretaireDTO;
 import com.example.userservice.service.SecretaireService;
 import org.springframework.beans.factory.annotation.Autowired;

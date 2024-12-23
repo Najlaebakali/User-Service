@@ -1,6 +1,5 @@
 package com.example.userservice.service;
 
-import com.example.userservice.dto.MedecinDTO;
 import com.example.userservice.dto.SecretaireDTO;
 
 import java.util.List;

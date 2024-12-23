@@ -20,7 +20,6 @@ import com.example.userservice.repository.MedecinRepository;
 import com.example.userservice.repository.SecretaireRepository;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

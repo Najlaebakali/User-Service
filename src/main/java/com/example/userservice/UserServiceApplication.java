@@ -1,14 +1,10 @@
 package com.example.userservice;
 
 import com.example.userservice.configuration.RSAConfig;
-import com.example.userservice.dto.AdminDTO;
-import com.example.userservice.service.AdminService;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
