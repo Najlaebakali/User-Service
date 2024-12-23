@@ -3,6 +3,7 @@ package com.example.userservice.controller;
 
 import com.example.userservice.dto.AdminDTO;
 import com.example.userservice.service.AdminService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class AdminController {
 
     private final AdminService adminService;
