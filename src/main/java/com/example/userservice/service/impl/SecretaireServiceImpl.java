@@ -45,7 +45,7 @@ public class SecretaireServiceImpl implements SecretaireService {
 
     @Override
     public SecretaireDTO saveSecretaire(SecretaireDTO secretaireDTO, Long medecinId) {
-
+        secretaireDTO.setPassword(passwordEncoder.encode(secretaireDTO.getPassword())); // Ensure encoding
         Secretaire secretaire = secretaireMapper.toEntity(secretaireDTO, medecinId);
         Secretaire savedSecretaire = secretaireRepository.save(secretaire);
         return secretaireMapper.toDto(savedSecretaire);
