@@ -104,7 +104,7 @@
 
         <!-- Ajout de dep pour api karate test-->
 
-            <!-- other dependencies
+            <!-- other dependencies-->
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-junit5</artifactId>
@@ -115,7 +115,7 @@
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-core</artifactId>
             <version>1.1.0</version>
-        </dependency>-->
+        </dependency>
 
 
     </dependencies>
